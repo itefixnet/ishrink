@@ -90,7 +90,9 @@ environment:
 
 List entries in one JSON file with expiry status.
 
-  docker-compose exec shortener list_urls links.json
+```bash
+docker-compose exec shortener list_urls links.json
+```
 
 Output includes:
 - short code
@@ -105,16 +107,19 @@ Delete entries by short code from one JSON file.
 After deletion, config is regenerated and Nginx is reloaded automatically.
 
 Exact match:
-
-  docker-compose exec shortener delete_url links.json gh
+```bash
+docker-compose exec shortener delete_url links.json gh
+```
 
 Wildcard match (`*` and `?`):
-
-  docker-compose exec shortener delete_url links.json 'gh_*' --wildcard
+```bash
+docker-compose exec shortener delete_url links.json 'gh_*' --wildcard
+```
 
 Dry run (preview only):
-
-  docker-compose exec shortener delete_url links.json 'promo-*' --wildcard --dry-run
+```bash
+docker-compose exec shortener delete_url links.json 'promo-*' --wildcard --dry-run
+```
 
 ## Architecture & How It Works
 
