@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  shortener:
+    build: .
+    container_name: url_shortener
+    ports:
+      - "8080:80"
+    volumes:
+      - ./urls:/app/urls
+    environment:
+      - SHORT_BASE_URL=https://go.example.com
+    # entrypoint.sh handles startup: generate config, start watcher, run nginx
+    restart: unless-stopped
